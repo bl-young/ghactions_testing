@@ -1,16 +1,14 @@
-# This is a basic workflow to help you get started with Actions
+# See example: https://jasonet.co/posts/scheduled-actions/#jasonetcocreate-an-issue
 
-name: Create our Weekly Meeting notes issue
+name: Create data download reminder
 on:
   schedule:
-    - cron: '0 14 * * 1'
+    - cron: '*/15 * * * *'
 jobs:
   issue:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - uses: JasonEtco/create-an-issue@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          filename: .github/ISSUE_TEMPLATE/meeting-notes.md
+          filename: .github/ISSUE_TEMPLATE/data_download.md
