@@ -3,12 +3,14 @@
 name: Create data download reminder
 on:
   schedule:
-    - cron: '*/15 * * * *'
+    - cron: '*/5 * * * *'
 jobs:
   issue:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - uses: JasonEtco/create-an-issue@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           filename: .github/ISSUE_TEMPLATE/data_download.md
