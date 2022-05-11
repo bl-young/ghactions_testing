@@ -44,7 +44,7 @@ jobs:
       run: |
         echo "Year: ${{ github.event.inputs.year }}"
         echo "Inventory: ${{ github.event.inputs.inventory }}"
-        python scripts/generate_select_inventories.py --years "2016" --inventory "GHGRP"
+        python scripts/generate_select_inventories.py --years $YEAR --inventory $INVENTORY
 
     - name: Upload files
       uses: actions/upload-artifact@v3
