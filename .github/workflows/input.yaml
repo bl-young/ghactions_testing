@@ -45,7 +45,7 @@ jobs:
       run: |
         echo "Year: ${{ github.event.inputs.year }}"
         echo "Inventory: ${{ github.event.inputs.inventory }}"
-        pytest -m single --years 2016 --inventory GHGRP
+        pytest -m single --years=2016 --inventory=GHGRP
 
     - name: Upload files
       uses: actions/upload-artifact@v3
