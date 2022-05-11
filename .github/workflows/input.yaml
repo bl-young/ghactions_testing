@@ -32,7 +32,6 @@ jobs:
       run: |
         python -VV
         python -m pip install --upgrade pip setuptools wheel
-        pip install pytest pytest-cov
 
     - name: Install package and dependencies
       run: |
@@ -45,7 +44,7 @@ jobs:
       run: |
         echo "Year: ${{ github.event.inputs.year }}"
         echo "Inventory: ${{ github.event.inputs.inventory }}"
-        pytest -m single
+        python scripts/generate_select_inventories.py --years "2016" --inventory "GHGRP"
 
     - name: Upload files
       uses: actions/upload-artifact@v3
